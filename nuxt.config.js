@@ -11,10 +11,15 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: "/vendor/jquery/jquery.min.js" }
+    ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: [
+    '~/static/vendor/font-awesome5/css/all.min.css'
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -32,9 +37,35 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
+    // https://axios.nuxtjs.org/
     '@nuxtjs/axios',
+    // https://auth.nuxtjs.org
+    '@nuxtjs/auth'
   ],
+
+  // Auth module configuration (https://auth.nuxtjs.org/guide/setup.html)
+  auth: {
+    strategies: {
+      // Method used
+      local: {
+        endpoints: {
+          //UNTUK LOGIN PADA BAGIAN URL, KITA MASUKKAN URL LOGIN DARI API YANG SUDAH KITA BUAT
+          //SEDANGKAN PROPERTYNAME ADALAH PROPERTY YANG INGIN KITA AMBIL VALUENYA
+          //DALAM HAL INI, LOGIN MENGHARAPKAN TOKEN, SEDANGKAN PADA API KITA ME-RETURN TOKEN DI DALAM OBJECT DATA
+          login: { url: '/login', method: 'post', propertyName: 'data' },
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/users/login', method: 'get', propertyName: 'data' }
+        },
+        tokenRequired: true,
+        tokenType: 'Bearer '
+      }
+    }
+  },
+
+  // Middleware to check authentication
+  router: {
+    middleware: ['auth']
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
@@ -59,5 +90,17 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /(node_modules)/,
+        options: {
+          fix: true
+        }
+      })
+    }
+  },
 }
