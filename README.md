@@ -1,4 +1,4 @@
-# monolith-frontend
+# monolith-bootstrap
 
 ## Build Setup
 

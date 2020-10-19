@@ -1,6 +1,6 @@
 <template>
   <!-- Preloader -->
-  <div class="preloader">
+  <div v-if="loading" class="preloader">
     <div class="lds-ellipsis">
       <div></div>
       <div></div>
@@ -15,7 +15,15 @@
 export default {
   data() {
     return {
-      title: 'Hello World!',
+      loading: true,
+    }
+  },
+  mounted() {
+    if (process.browser) {
+      window.onNuxtReady((app) => {
+        // eslint-disable-next-line
+        this.loading = false
+      })
     }
   },
   head() {
@@ -31,11 +39,6 @@ export default {
         {
           rel: 'stylesheet',
           type: 'text/css',
-          href: '/vendor/bootstrap4/css/bootstrap.min.css',
-        },
-        {
-          rel: 'stylesheet',
-          type: 'text/css',
           href: '/vendor/font-awesome5/css/all.min.css',
         },
         {
@@ -43,10 +46,6 @@ export default {
           type: 'text/css',
           href: '/vendor/front-page/css/stylesheet.css',
         },
-      ],
-      script: [
-        { src: '/vendor/bootstrap4/js/bootstrap.bundle.min.js' },
-        { src: '/vendor/front-page/js/theme.js' },
       ],
     }
   },

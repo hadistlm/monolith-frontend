@@ -1,8 +1,8 @@
 <template>
-  <v-app>
+  <b-container fluid class="p-0">
     <app-header />
     <nuxt />
-  </v-app>
+  </b-container>
 </template>
 
 <script>
