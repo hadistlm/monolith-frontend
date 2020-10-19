@@ -12,7 +12,7 @@
               <div class="row no-gutters">
                 <div class="col-10 col-lg-9 mx-auto">
                   <div class="logo mt-5 mb-5 mb-md-0">
-                    <a class="d-flex" href="index.html" title="Oxyy"
+                    <a class="d-flex" href="javascript:void(0)" title="logo"
                       ><img
                         src="/vendor/front-page/images/logo-light.png"
                         alt="logo"
@@ -44,38 +44,37 @@
                 <form id="loginForm" method="post">
                   <div class="form-group">
                     <label for="emailAddress">Email Address</label>
-                    <input
-                      id="emailAddress"
-                      type="email"
-                      class="form-control"
+                    <b-form-input
+                      :id="`emailAddress`"
+                      placeholder="Enter username or email"
                       required
-                      placeholder="Enter Your Email"
-                    />
+                    ></b-form-input>
                   </div>
                   <div class="form-group">
                     <label for="loginPassword">Password</label>
-                    <input
-                      id="loginPassword"
-                      type="password"
-                      class="form-control"
-                      required
-                      placeholder="Enter Password"
-                    />
+                    <b-input-group>
+                      <b-form-input
+                        :id="`loginPassword`"
+                        :type="togglePassword ? 'text' : 'password'"
+                        placeholder="Enter Password"
+                        required
+                      ></b-form-input>
+                      <b-input-group-append>
+                        <span
+                          class="input-group-text"
+                          @click="togglePassword = !togglePassword"
+                          ><i
+                            :class="
+                              !togglePassword
+                                ? 'far fa-eye'
+                                : 'far fa-eye-slash'
+                            "
+                          ></i
+                        ></span>
+                      </b-input-group-append>
+                    </b-input-group>
                   </div>
                   <div class="row">
-                    <div class="col-sm">
-                      <div class="form-check custom-control custom-checkbox">
-                        <input
-                          id="remember-me"
-                          name="remember"
-                          class="custom-control-input"
-                          type="checkbox"
-                        />
-                        <label class="custom-control-label" for="remember-me"
-                          >Remember Me</label
-                        >
-                      </div>
-                    </div>
                     <div class="col-sm text-right">
                       <a class="btn-link" href="#">Forgot Password ?</a>
                     </div>
@@ -109,6 +108,7 @@ export default {
         email: null,
         password: null,
       },
+      togglePassword: false,
     }
   },
   mounted() {
@@ -138,5 +138,19 @@ export default {
 <style scoped>
 .hero-bg {
   background-image: url('/vendor/front-page/images/login-bg.jpg');
+}
+#loginPassword {
+  border-right: none;
+}
+.input-group-text {
+  width: 48px;
+  cursor: pointer;
+  border-left: none;
+  background-color: #ffffff;
+}
+[class^='far-'],
+[class*=' fa-'] {
+  display: inline-block;
+  width: 100%;
 }
 </style>
