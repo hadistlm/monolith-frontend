@@ -1,10 +1,10 @@
 <template>
   <div id="main-wrapper" class="oxyy-login-register">
-    <div class="container-fluid px-0">
-      <div class="row no-gutters min-vh-100">
+    <b-container fluid class="px-0">
+      <b-row no-gutters class="min-vh-100">
         <!-- Welcome Text
         ========================= -->
-        <div class="col-md-6">
+        <b-col md="6">
           <div class="hero-wrap d-flex align-items-center h-100">
             <div class="hero-mask opacity-8 bg-primary"></div>
             <div class="hero-bg hero-bg-scroll"></div>
@@ -31,15 +31,15 @@
               </div>
             </div>
           </div>
-        </div>
+        </b-col>
         <!-- Welcome Text End -->
 
         <!-- Login Form
         ========================= -->
-        <div class="col-md-6 d-flex align-items-center">
-          <div class="container my-auto py-5">
-            <div class="row">
-              <div class="col-11 col-lg-9 col-xl-8 mx-auto">
+        <b-col md="6" class="d-flex align-items-center">
+          <b-container fluid class="my-auto py-5">
+            <b-row>
+              <b-col cols="11" lg="9" xl="8" class="mx-auto">
                 <h3 class="font-weight-600 mb-4">Log In</h3>
                 <form id="loginForm" method="post">
                   <div class="form-group">
@@ -88,13 +88,13 @@
                   Don't have an account?
                   <a class="btn-link" href="register.html">Sign Up</a>
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
+              </b-col>
+            </b-row>
+          </b-container>
+        </b-col>
         <!-- Login Form End -->
-      </div>
-    </div>
+      </b-row>
+    </b-container>
   </div>
 </template>
 

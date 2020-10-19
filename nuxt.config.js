@@ -4,7 +4,8 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'monolith-bootstrap',
+    titleTemplate: '%s - monolith-frontend',
+    title: 'monolith-frontend',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -42,6 +43,12 @@ export default {
 
   // Auth module configuration (https://auth.nuxtjs.org/guide/setup.html)
   auth: {
+    redirect: {
+      login: '/Front/login',
+      logout: '/',
+      callback: '/login',
+      home: '/'
+    },
     strategies: {
       // Method used
       local: {
