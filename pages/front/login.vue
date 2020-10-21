@@ -85,7 +85,9 @@
                 </form>
                 <p class="text-center text-muted">
                   Don't have an account?
-                  <a class="btn-link" href="register.html">Sign Up</a>
+                  <nuxt-link to="/front/register" class="btn-link" no-prefetch
+                    ><u>Sign Up</u></nuxt-link
+                  >
                 </p>
               </b-col>
             </b-row>
