@@ -40,7 +40,11 @@
           <b-container fluid class="my-auto py-5">
             <b-row>
               <b-col cols="11" lg="9" xl="8" class="mx-auto">
-                <h3 class="font-weight-600 mb-4">Log In</h3>
+                <h3 class="font-weight-600 mb-2">Reset Your password</h3>
+                <p class="mb-4">
+                  Please enter your email address and we will send you a
+                  password password link.
+                </p>
                 <form id="loginForm" method="post">
                   <div class="form-group">
                     <label for="emailAddress">Email Address</label>
@@ -50,45 +54,14 @@
                       required
                     ></b-form-input>
                   </div>
-                  <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <b-input-group>
-                      <b-form-input
-                        :id="`loginPassword`"
-                        :type="togglePassword ? 'text' : 'password'"
-                        placeholder="Enter Password"
-                        required
-                      ></b-form-input>
-                      <b-input-group-append>
-                        <span
-                          class="input-group-text"
-                          @click="togglePassword = !togglePassword"
-                          ><i
-                            :class="
-                              !togglePassword
-                                ? 'far fa-eye'
-                                : 'far fa-eye-slash'
-                            "
-                          ></i
-                        ></span>
-                      </b-input-group-append>
-                    </b-input-group>
-                  </div>
-                  <b-row class="float-right">
-                    <b-col sm="auto" class="text-right mb-3">
-                      <nuxt-link no-prefetch to="/front/reset" class="btn-link"
-                        >Forgot Password ?</nuxt-link
-                      >
-                    </b-col>
-                  </b-row>
                   <b-button block variant="primary" type="submit" class="my-4"
-                    >Login</b-button
+                    >Reset Password</b-button
                   >
                 </form>
                 <p class="text-center text-muted">
-                  Don't have an account?
-                  <nuxt-link to="/front/register" class="btn-link" no-prefetch
-                    ><u>Sign Up</u></nuxt-link
+                  Already have an account?
+                  <nuxt-link to="/front/login" class="btn-link" no-prefetch
+                    ><u>Sign In</u></nuxt-link
                   >
                 </p>
               </b-col>
@@ -138,7 +111,7 @@ export default {
   },
   head() {
     return {
-      title: 'Login',
+      title: 'Forgot Password',
     }
   },
 }
