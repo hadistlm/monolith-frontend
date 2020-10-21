@@ -35,6 +35,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    // https://sweetalert2.github.io/
+    'vue-sweetalert2/nuxt'
     // https://axios.nuxtjs.org/
     '@nuxtjs/axios',
     // https://auth.nuxtjs.org
