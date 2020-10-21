@@ -4,8 +4,11 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - monolith-frontend',
-    title: 'monolith-frontend',
+    title: 'Monolith',
+    titleTemplate: (titleChunk) => {
+      // If undefined or blank then we don't need the hyphen
+      return titleChunk ? `Monolith - ${titleChunk}` : 'Monolith';
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

@@ -28,7 +28,6 @@ export default {
   },
   head() {
     return {
-      title: 'Monolith - Login',
       link: [
         {
           rel: 'stylesheet',
