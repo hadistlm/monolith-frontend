@@ -36,7 +36,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // https://sweetalert2.github.io/
-    'vue-sweetalert2/nuxt'
+    'vue-sweetalert2/nuxt',
     // https://axios.nuxtjs.org/
     '@nuxtjs/axios',
     // https://auth.nuxtjs.org
@@ -46,7 +46,7 @@ export default {
   // Auth module configuration (https://auth.nuxtjs.org/guide/setup.html)
   auth: {
     redirect: {
-      login: '/Front/login',
+      login: '/front/login',
       logout: '/',
       callback: '/login',
       home: '/'
